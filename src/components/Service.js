@@ -6,10 +6,16 @@ import MiniCard from "./MiniCard";
 const Container = styled.div`
   display: flex;
   height: 100%;
+  @media only screen and (max-width: 480px){
+        flex-direction: column;
+    }
 `;
 const Left = styled.div`
   width: 50%;
   position: relative;
+  @media only screen and (max-width: 480px){
+        display: none;
+    }
 `;
 
 const Image = styled.img`
@@ -19,12 +25,18 @@ const Image = styled.img`
 `;
 const Right = styled.div`
   width: 50%;
+  @media only screen and (max-width: 480px){
+        width: 100%;
+    }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   padding: 50px;
   flex-direction: column;
+  @media only screen and (max-width: 480px){
+        padding: 20px;
+    }
 `;
 
 const CardContainer = styled.div`
@@ -62,10 +74,33 @@ const Video = styled.video`
   bottom: 0;
   right: 0;
   margin: auto;
+  @media only screen and (max-width: 480px){
+       width: 100%;
+    }
+`;
+
+const Modal = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  padding: 5px;
+  background: white;
+  border: none;
+  border-bottom: 5px;
+  right: 5px;
+  top: 30%;
 `;
 
 const Service = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const smallScreen = window.screen.width <= 480 ? true : false;
   return (
     <Container>
       <Left>
@@ -89,6 +124,13 @@ const Service = () => {
           <Button onClick={() => setIsOpen(true)}>How it Works</Button>
         </Wrapper>
       </Right>
+      {smallScreen && isOpen && (
+        <Modal>
+          <Video isOpen={isOpen} autoPlay loop controls src="https://youtu.be/w9fKDxmQAWo"/>
+          <CloseButton onClick={() => setIsOpen(false)}>Close</CloseButton>
+        </Modal>
+       
+      )}
     </Container>
   );
 };

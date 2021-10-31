@@ -4,6 +4,8 @@ import Intro from "./components/Intro";
 import Feature from "./components/Feature";
 import Service from "./components/Service";
 import Price from "./components/Price";
+import Contact from "./components/Contact";
+import { Footer } from "./components/Footer";
 
 const Container = styled.div`
   height: 100vh;
@@ -42,6 +44,7 @@ const PriceShape = styled.div`
   background: #d63031;
 `;
 function App() {
+  const smallScreen = window.screen.width <= 480 ? true : false;
   return (
     <>
       <Container>
@@ -57,11 +60,17 @@ function App() {
 
       <Container>
          <Service />
-         <ServiceShape />
+        { !smallScreen && <ServiceShape />}
       </Container>
+
       <Container>
          <Price />
          <PriceShape />
+      </Container>
+
+      <Container>
+         <Contact />
+         <Footer />
       </Container>
     </>
   );

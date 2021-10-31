@@ -26,12 +26,31 @@ const Logo = styled.h1`
 const Menu = styled.ul`
     display: flex;
     list-style: none;
+
+    @media only screen and (max-width: 480px){
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px){
+    background: #ff6b6b;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+    top: 0;
+}
 `;
 const MenuItems = styled.li`
     margin-right: 30px;
     font-size: 20px;
     font-weight: bold;
     color: gray;
+    @media only screen and (max-width: 768px){
+        color: white;
+        margin-top: 20px;
+    }
 `;
 
 const Button =  styled.button`
@@ -43,6 +62,11 @@ const Button =  styled.button`
     border-radius: 10px;
     cursor: pointer;
     text-transform: uppercase;
+    @media only screen and (max-width: 768px){
+        position: relative;
+       
+        
+    }
 `;
 
 const Navbar = () => {

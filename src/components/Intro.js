@@ -7,6 +7,12 @@ const Container = styled.div`
   height: calc(100vh - 60px);
   display: flex;
   padding: 20px;
+  @media only screen and (max-width: 480px){
+        flex-direction: column;
+    }
+    @media only screen and (max-width: 768px){
+        flex-direction: column;
+    }
 `;
 const Left = styled.div`
   width: 60%;
@@ -14,18 +20,39 @@ const Left = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: 480px){
+      width: 100%;
+      height: 100%;
+    }
+    @media only screen and (max-width: 768px){
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 
 const Title = styled.h1`
   width: 60%;
   font-size: 60px;
+  @media only screen and (max-width: 480px){
+        width: 100%;
+        font-size: 50px;
+    }
+    @media only screen and (max-width: 768px){
+        width: 100%;
+        font-size: 60px;
+        text-align: center;
+        /* transform: translate(10px, 100%); */
+    }
 `;
 
 const Description = styled.p`
   width: 60%;
   font-size: 20px;
   margin-top: 10px;
+  @media only screen and (max-width: 480px){
+        width: 100%;
+    }
 `;
 
 const Info = styled.div`
@@ -34,6 +61,10 @@ const Info = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media only screen and (max-width: 480px){
+        width: 100%;
+        flex-direction: column;
+    }
 `;
 
 const Button = styled.button`
@@ -46,6 +77,9 @@ const Button = styled.button`
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
+    @media only screen and (max-width: 480px){
+        margin-bottom: 20px;
+    }
 `;
 
 const Contact = styled.div`
@@ -64,10 +98,17 @@ const ContactText = styled.span`
 
 const Right = styled.div`
   width: 40%;
+  @media only screen and (max-width: 480px){
+        display: none;
+    }
+    @media only screen and (max-width: 768px){
+        display: none;
+    }
 `;
 
 const Image = styled.img`
     width: 100%;
+   
 `;
 
 const Intro = () => {
